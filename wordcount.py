@@ -47,37 +47,39 @@ import sys
 # Then print_words() and print_top() can just call the utility function.
 
 def read_file(filename):
-    input = open(filename, 'r')
-    dict = {}
-    words = input.read().split()
-
+    f = open(filename, 'r')
+    dictaux = {}
+    words = f.read().split()
     for key in words:
         key = key.lower()
-        if key not in dict:
-            dict[key] = 1
+        if key not in dictaux:
+            dictaux[key] = 1
         else:
-            dict[key] += 1
+            dictaux[key] += 1
 
-    input.close()
-    return dict
+    f.close()
+    return dictaux
+
 
 def print_words(filename):
-    dict = read_file(filename)
-    for key in sorted(dict.keys()):
-        print(key, dict[key])
-    return
+
+    dictaux = read_file(filename)
+    for key in sorted(dictaux.keys()):
+        print(key, dictaux[key])
+
 
 def print_top(filename):
-    dict = read_file(filename)
 
-    def tuple_count(tuple):
-        return tuple[1]
+    dictaux = read_file(filename)
 
-    words = sorted(dict.items(), key= tuple_count, reverse=True)
+    def tuple_count(tup):
+        return tup[1]
+
+    words = sorted(dictaux.items(), key=tuple_count, reverse=True)
     for key in words[:20]:
         print(key[0], key[1])
-    return
 ###
+
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.

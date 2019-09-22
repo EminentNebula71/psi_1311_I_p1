@@ -22,11 +22,11 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-    count=0
+    count = 0
     for i in words:
-        if(len(i)>=2):
-            if (i[0] == i[len(i)-1]):
-                count+=1
+        if len(i) >= 2:
+            if i[0] == i[len(i)-1]:
+                count += 1
 
     return count
 
@@ -61,7 +61,7 @@ def sort_last(tuples):
     def last_elem(vec):
         return vec[-1]
 
-    return sorted(tuples, key= last_elem)
+    return sorted(tuples, key=last_elem)
 
 
 # Simple provided test() function used in main() to print
@@ -81,7 +81,7 @@ def main():
     test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
     test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
 
-    print ('\nfront_x')
+    print('\nfront_x')
     test(front_x(['bbb', 'ccc', 'axx', 'xzz', 'xaa']),
          ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
     test(front_x(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']),
