@@ -42,6 +42,7 @@ def both_ends(s):
 	else:
 		dev = s[0]+s[1]+s[len(s)-2]+s[len(s)-1]
 		return dev
+
 	return
 
 
@@ -55,13 +56,9 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-	for i in range (len(s)):
-		j=i+1
-		for j in range(len(s)):
-			if j<i and s[j]==s[i]:
-				s[j+1:].replace(s[j], "*")
-				return s
-	return s
+    aux = s.replace(s[0], "*")
+    s = s[0] + aux[1:]
+    return s
 
 
 # D. MixUp
